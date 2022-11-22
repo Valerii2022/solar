@@ -4,6 +4,7 @@
   --bg-color: #ffffff;
   --white-text-color: #ffffff;
   --hover-color: #a9a32a;
+  --transition: 300ms cubic-bezier(.69, .5, .88, -0.23)
 }
 
 body {
@@ -88,6 +89,7 @@ ul {
 }
 
 .header .logo-link {
+  transition: color var(--transition);
   color: var(--white-text-color);
 }
 
@@ -128,12 +130,26 @@ header .logo-link:hover {
 }
 
 .header .button {
+  width: 308px;
   margin-bottom: 230px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
 
   color: var(--white-text-color);
 }
 
+.header .btn-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+}
+
 .header .logo-icon {
+  transition: background-color var(--transition);
+
   border: 2px solid var(--white-text-color);
   border-radius: 50%;
 
@@ -158,8 +174,11 @@ header .logo-link:hover {
 }
 
 .social-icon-link .link {
+  transition: color var(--transition), background-color var(--transition);
+
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,8 +187,6 @@ header .logo-link:hover {
 }
 
 .social-icon-link .link:hover {
-  border-radius: 50%;
-
   background-color: var(--bg-color);
   color: var(--hover-color);
 }
@@ -307,6 +324,7 @@ header .logo-link:hover {
 .clients .icon:hover {
   background-color: var(--hover-color);
 }
+
 /* --------------------------------------------------five steps section */
 
 .five-steps {
@@ -355,6 +373,7 @@ header .logo-link:hover {
 .form {
   width: 510px;
 }
+
 .footer-title {
   margin-bottom: 60px;
 
@@ -364,8 +383,9 @@ header .logo-link:hover {
 
   color: var(--white-text-color);
 }
-.site-form {
-}
+
+.site-form {}
+
 .form-field {
   display: block;
   width: 510px;
@@ -405,10 +425,12 @@ header .logo-link:hover {
 
   color: var(--white-text-color);
 }
+
 .footer-bottom {
   display: flex;
   justify-content: space-between;
 }
+
 .footer .politic {
   line-height: 1.14;
 
