@@ -396,26 +396,76 @@ header .logo-link:hover {
   color: var(--white-text-color);
 }
 
-.site-form {
+.site-form {}
+
+.input-wrap {
+  position: relative;
 }
 
 .form-field {
+
+  transition: border var(--transition);
   display: block;
   width: 510px;
   background-color: transparent;
   border: none;
+  outline: none;
   border-bottom: 1px solid var(--white-text-color);
   margin-bottom: 60px;
   padding-bottom: 11px;
 
-  font-size: 14px;
   line-height: 1.36;
 
   color: var(--white-text-color);
 }
 
-.footer .button {
+.form-field:not(:focus):not(:placeholder-shown):valid {
+  color: rgba(0, 255, 0, 0.5);
+}
+
+.form-field:not(:focus):not(:placeholder-shown):invalid {
+  color: rgba(255, 0, 0, 0.5);
+}
+
+.form-field:focus,
+.form-field:hover,
+.form-field:not(:placeholder-shown) {
+  border-bottom: 1px solid var(--hover-color);
+}
+
+.form-field:focus+.input-label,
+.form-field:hover+.input-label,
+.form-field:not(:placeholder-shown)+.input-label {
+  transform: translateX(-120%);
+  color: var(--hover-color);
+}
+
+.input-label {
+  transition: transform var(--transition), color var(--transition);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  line-height: 1.36;
   color: var(--white-text-color);
+}
+
+.footer .button {
+  width: 308px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+
+  color: var(--white-text-color);
+}
+
+.footer .btn-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
 }
 
 .footer .logo-icon {
@@ -535,11 +585,13 @@ header .logo-link:hover {
   height: 100%;
   background-color: rgba(100, 100, 100, 0.5);
 }
+
 .is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
+
 .modal {
   transition: transform var(--transition);
   transform: scale(1);
