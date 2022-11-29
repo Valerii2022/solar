@@ -72,6 +72,17 @@ ul {
   color: var(--primary-color);
 }
 
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 /* -------------------------------------------------------header */
 
 .header {
@@ -145,6 +156,7 @@ header .logo-link:hover {
   position: absolute;
   bottom: 20px;
   left: 50px;
+  pointer-events: none;
 }
 
 .header .logo-icon {
@@ -228,6 +240,35 @@ header .logo-link:hover {
 .title-list {
   display: flex;
   margin-bottom: 120px;
+  position: relative;
+}
+
+.green-label:after {
+  content: '';
+  display: none;
+  margin-top: 2px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--title-color);
+}
+
+.hidden:checked + .green-label:after {
+  display: block;
+}
+
+.input-text {
+  display: none;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 510px;
+
+  line-height: 1.36;
+  color: var(--primary-color);
+}
+
+.hidden:checked ~ .input-text {
+  display: block;
 }
 
 .title-list .item:not(:last-child) {
@@ -322,6 +363,7 @@ header .logo-link:hover {
   position: absolute;
   bottom: 20px;
   left: 50px;
+  pointer-events: none;
 }
 
 .clients .logo-icon {
@@ -396,14 +438,14 @@ header .logo-link:hover {
   color: var(--white-text-color);
 }
 
-.site-form {}
+.site-form {
+}
 
 .input-wrap {
   position: relative;
 }
 
 .form-field {
-
   transition: border var(--transition);
   display: block;
   width: 510px;
@@ -433,9 +475,9 @@ header .logo-link:hover {
   border-bottom: 1px solid var(--hover-color);
 }
 
-.form-field:focus+.input-label,
-.form-field:hover+.input-label,
-.form-field:not(:placeholder-shown)+.input-label {
+.form-field:focus + .input-label,
+.form-field:hover + .input-label,
+.form-field:not(:placeholder-shown) + .input-label {
   transform: translateX(-120%);
   color: var(--hover-color);
 }
@@ -466,6 +508,7 @@ header .logo-link:hover {
   position: absolute;
   bottom: 20px;
   left: 50px;
+  pointer-events: none;
 }
 
 .footer .logo-icon {
